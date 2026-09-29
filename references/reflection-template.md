@@ -44,6 +44,13 @@ Statuses: confirmed / plausible / ruled out / not checked. Cover applicable impl
 
 Keep historical results and corrected estimates traceable. Any change to the claim or its approved scope must be explicit and versioned.
 
+### Before any proposed experiment or rerun
+
+- **Complete resolved configuration:** Purpose; code/environment; data/split/sample selection and size; arms/baselines; models/providers; prompts; hyperparameters/seeds/repetitions; evaluator/metrics; concurrency/timeouts/retries; cost/stop limits; outputs. Include effective defaults, not secrets.
+- **User confirmation:** Configuration snapshot, exact run or enumerated batch, and explicit confirmation. Wait if pending. Every new launch or configuration change, including minimal validation, requires confirmation.
+- **Validation coverage:** Each planned arm, route, data format, and evaluation path; minimal real execution evidence; correctness evidence; pass/fail/not-checked status. Recheck paths affected by fixes.
+- **Larger-run readiness:** All required checks pass with no unresolved correctness issues, and the proposed larger configuration has been confirmed by the user. Otherwise do not scale up.
+
 ## E. Positive result: mechanism and paper explanation
 
 - **Where the gain comes from:**

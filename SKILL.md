@@ -59,6 +59,12 @@ Label analyses or conditions discovered after seeing outcomes as exploratory. Re
 
 For every proposed fix, reanalysis, or run, give: **diagnosis → change → predicted observation → evidence gained for the idea → cost → continuation or stop rule**. Prefer existing evidence and cheap checks, then the smallest informative controlled run. Within the authorized budget, prioritize paths likely to produce credible positive evidence and resolve the most consequential uncertainty. Further analysis may also strengthen evidence against the idea; report that outcome accurately.
 
+### Confirm each experiment and revalidate before scaling
+
+Before launching any experiment, including a validation run, diagnostic pilot, rerun after a fix, or larger batch, present the complete resolved configuration and obtain the user's explicit confirmation. Include purpose, code/environment versions, data/split/sample selection and size, arms/baselines, models/providers, prompts, hyperparameters/seeds/repetitions, evaluator/metrics, concurrency/timeouts/retries, cost and stop limits, and output location. Show effective defaults and exclude secrets. Save the configuration and confirmation; approval applies only to the exact run or enumerated batch presented. A new launch or configuration change needs fresh confirmation, while internal steps of an already approved run do not.
+
+Scale up only after minimal real end-to-end checks cover every planned arm, baseline, model/provider route, dataset format, and evaluation path. Verify both execution and correctness against the design through raw traces, effective settings, aligned inputs and labels, valid treatment/control behavior, independently checked representative scores, aggregation, and saved outputs. Record evidence and pass/fail/not-checked status for each required path; mock results or a successful exit alone do not pass this gate. Resolve all failed or unchecked paths and revalidate those affected by a fix. Present this evidence and obtain confirmation of the larger-run configuration before any increase in scale, even a modest one.
+
 ## 5. For positive signals, explain why the result is good
 
 Apply the same validity and diagnosis checks to positive results. Investigate whether gains come from the proposed mechanism, extra resources or information, an easier comparison, evaluation artifacts, sample composition, or chance.
